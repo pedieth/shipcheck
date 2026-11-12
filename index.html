@@ -9,7 +9,7 @@
 <meta property="og:description" content="Fixed-price security check for Supabase and Firebase apps. Written report in 48 hours.">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="dark light">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <header class="wrap top">
@@ -38,6 +38,9 @@
     <li><b>Auth settings</b><span>Open sign-ups where they shouldn't be, email confirmation, redirect URLs.</span></li>
     <li><b>Edge functions and RPC</b><span>Functions callable without auth, or trusting a user id sent from the client.</span></li>
     <li><b>Firebase rules</b><span>Firestore, Realtime Database and Storage rules that allow read or write to everyone.</span></li>
+    <li><b>User-to-user access</b><span>With two test accounts you give me, I check that one user can't read or change the other's data.</span></li>
+    <li><b>Login flows</b><span>Sign up, login, sessions and password reset.</span></li>
+    <li><b>Paid features</b><span>Paid content and actions blocked on the server, not just hidden in the page.</span></li>
   </ul>
 </section>
 
@@ -83,7 +86,6 @@
   <h2>Questions</h2>
   <details><summary>Do you need access to my database?</summary><p>No. Quick Check works from the outside, the same way an attacker would. Audit + Fix is easier with read-only dashboard access, but it's optional.</p></details>
   <details><summary>What if you find nothing?</summary><p>You get a report that says what was checked and that it passed. That's worth having before launch or a fundraise.</p></details>
-  <details><summary>Is this a full penetration test?</summary><p>No. It's a focused check of the misconfigurations that most often expose data in Supabase and Firebase apps. It doesn't guarantee your app is secure in every way.</p></details>
 </section>
 </main>
 
