@@ -39,7 +39,8 @@
     <li><b>Edge functions and RPC</b><span>Functions callable without auth, or trusting a user id sent from the client.</span></li>
     <li><b>Firebase rules</b><span>Firestore, Realtime Database and Storage rules that allow read or write to everyone.</span></li>
     <li><b>User-to-user access</b><span>With two test accounts you give me, I check that one user can't read or change the other's data.</span></li>
-    <li><b>Login flows</b><span>Sign up, login, sessions and password reset.</span></li>
+    <li><b>Login flows</b><span>Sign up, login, sessions and password reset, tested with the test accounts you give me.</span></li>
+    <li><b>Rate limits</b><span>Login, sign-up and password reset can't be hammered by bots or brute force.</span></li>
     <li><b>Paid features</b><span>Paid content and actions blocked on the server, not just hidden in the page.</span></li>
     <li><b>Payment webhooks</b><span>Stripe and other webhooks verify their signature, so nobody can fake a payment.</span></li>
     <li><b>Exposed files</b><span>Source maps, .env files or a .git folder left public on your site.</span></li>
@@ -49,7 +50,7 @@
     <li><b>Admin pages</b><span>Admin routes and dashboards that a normal user or visitor can reach.</span></li>
     <li><b>File uploads</b><span>Uploads that accept any file type or size, or can be read by other users.</span></li>
     <li><b>AI features</b><span>OpenAI or other AI endpoints anyone can call on your bill, without login or limits.</span></li>
-    <li><b>Input handling</b><span>User input that could inject scripts or queries, if you share the repo.</span></li>
+    <li><b>Input handling</b><span>A code review of where user input reaches queries or pages unescaped, if you share the repo.</span></li>
   </ul>
 </section>
 
@@ -69,7 +70,7 @@
     <div class="plan">
       <h3>Monitor</h3>
       <p class="price">$89<small>/month</small></p>
-      <ul><li>For past clients</li><li>Re-check after each release</li><li>Short written note each time</li></ul>
+      <ul><li>For past clients</li><li>Re-check monthly, or whenever you tell me you shipped</li><li>Short written note each time</li></ul>
     </div>
   </div>
   <p class="note">Founding price: the first five Quick Checks are $49 in exchange for an honest review.</p>
@@ -80,8 +81,8 @@
   <ol class="steps">
     <li><b>Message me on X</b> with your app link and stack.</li>
     <li><b>Give written permission</b> to test that app. I never test anything without it.</li>
-    <li><b>Pay up front</b> in USDC.</li>
     <li><b>Get the report</b> within 48 hours, with every finding and its fix.</li>
+    <li><b>Pay after</b> you have the report, in USDC.</li>
   </ol>
 </section>
 
