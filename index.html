@@ -9,7 +9,7 @@
 <meta property="og:description" content="Fixed-price security check for Supabase and Firebase apps. Written report in 48 hours.">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="dark light">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 <header class="wrap top">
@@ -41,6 +41,11 @@
     <li><b>User-to-user access</b><span>With two test accounts you give me, I check that one user can't read or change the other's data.</span></li>
     <li><b>Login flows</b><span>Sign up, login, sessions and password reset.</span></li>
     <li><b>Paid features</b><span>Paid content and actions blocked on the server, not just hidden in the page.</span></li>
+    <li><b>Payment webhooks</b><span>Stripe and other webhooks verify their signature, so nobody can fake a payment.</span></li>
+    <li><b>Exposed files</b><span>Source maps, .env files or a .git folder left public on your site.</span></li>
+    <li><b>Headers and CORS</b><span>Security headers present, and your API only answers the sites it should.</span></li>
+    <li><b>Dependencies</b><span>Packages with known vulnerabilities, if you share the repo.</span></li>
+    <li><b>Secrets in history</b><span>Keys committed once and still sitting in your git history, if you share the repo.</span></li>
   </ul>
 </section>
 
