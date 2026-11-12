@@ -9,7 +9,7 @@
 <meta property="og:description" content="Fixed-price security check for Supabase and Firebase apps. Written report in 48 hours.">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="dark light">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 <header class="wrap top">
@@ -46,6 +46,10 @@
     <li><b>Headers and CORS</b><span>Security headers present, and your API only answers the sites it should.</span></li>
     <li><b>Dependencies</b><span>Packages with known vulnerabilities, if you share the repo.</span></li>
     <li><b>Secrets in history</b><span>Keys committed once and still sitting in your git history, if you share the repo.</span></li>
+    <li><b>Admin pages</b><span>Admin routes and dashboards that a normal user or visitor can reach.</span></li>
+    <li><b>File uploads</b><span>Uploads that accept any file type or size, or can be read by other users.</span></li>
+    <li><b>AI features</b><span>OpenAI or other AI endpoints anyone can call on your bill, without login or limits.</span></li>
+    <li><b>Input handling</b><span>User input that could inject scripts or queries, if you share the repo.</span></li>
   </ul>
 </section>
 
