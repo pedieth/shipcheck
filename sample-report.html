@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample report · shipcheck</title>
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<header class="wrap top">
+  <a class="logo" href="./" style="color:inherit;text-decoration:none">shipcheck</a>
+  <a class="btn small" href="https://x.com/Pedi_eth">Book a check</a>
+</header>
+<main>
+<section class="wrap hero">
+  <p class="eyebrow">Example report · Quick Check · fictional app</p>
+  <h1>notely-demo</h1>
+  <p class="lead">An example of the report you get, written for a fictional notes app on Supabase. The findings are illustrative, picked from the mistakes that most often show up in fast-built apps. No real app, users or client data are involved.</p>
+  <table>
+    <tr><th>Stack</th><td>React + Supabase (Postgres, Auth, Storage)</td></tr>
+    <tr><th>Scope</th><td>Public site, Supabase REST API, Storage, Auth settings</td></tr>
+    <tr><th>Method</th><td>From the outside, with the public anon key and test accounts</td></tr>
+    <tr><th>Result</th><td><span class="sev crit">1 critical</span><span class="sev high">1 high</span><span class="sev med">1 medium</span><span class="sev low">1 low</span></td></tr>
+  </table>
+</section>
+
+<section class="wrap">
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3><span class="sev crit">Critical</span> Any visitor can read every user's notes</h3>
+    <p><b>What:</b> Row level security is off on the <code>notes</code> table. The anon key in the site's JavaScript is enough to read all rows.</p>
+    <pre>GET /rest/v1/notes?select=*
+apikey: &lt;public anon key&gt;
+→ 200, returns notes from every account</pre>
+    <p><b>Fix:</b> turn RLS on and allow each user only their own rows.</p>
+    <pre>alter table notes enable row level security;
+
+create policy "own notes" on notes
+  for all using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);</pre>
+  </div>
+
+  <div class="finding">
+    <h3><span class="sev high">High</span> Attachments bucket is public and listable</h3>
+    <p><b>What:</b> The <code>attachments</code> bucket is marked public, so anyone who guesses or lists a path can download files from other users.</p>
+    <p><b>Fix:</b> make the bucket private, store files under the user's id, and serve them with signed URLs.</p>
+    <pre>create policy "own files" on storage.objects
+  for select using (
+    bucket_id = 'attachments'
+    and (storage.foldername(name))[1] = auth.uid()::text
+  );</pre>
+  </div>
+
+  <div class="finding">
+    <h3><span class="sev med">Medium</span> Profile update trusts the user id from the client</h3>
+    <p><b>What:</b> The <code>update_profile</code> function takes a <code>user_id</code> argument, so a signed-in user can change someone else's display name.</p>
+    <p><b>Fix:</b> drop the argument and use <code>auth.uid()</code> inside the function.</p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="sev low">Low</span> Email confirmation is off</h3>
+    <p><b>What:</b> Accounts work without confirming the email, which makes fake sign-ups and spam easy.</p>
+    <p><b>Fix:</b> Authentication → Providers → Email → turn on "Confirm email".</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Passed</h2>
+  <ul>
+    <li>No service role key in the shipped JavaScript</li>
+    <li>Auth redirect URLs limited to the app's own domain</li>
+    <li>No edge functions callable without a session</li>
+  </ul>
+  <p class="note">A Quick Check covers the common misconfigurations listed on the main page. It is not a full penetration test and doesn't guarantee an app is secure in every way.</p>
+  <p><a class="btn" href="https://x.com/Pedi_eth">Get this for your app</a></p>
+</section>
+</main>
+<footer class="wrap foot">
+  <a href="./">shipcheck</a>
+  <a href="https://x.com/Pedi_eth">x.com/Pedi_eth</a>
+</footer>
+</body>
+</html>

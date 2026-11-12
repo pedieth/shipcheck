@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shipcheck · security check for Supabase and Firebase apps</title>
+<meta name="description" content="A fixed-price security check for apps built on Supabase or Firebase. Written report in 48 hours. No calls.">
+<meta property="og:title" content="shipcheck · is your users' data actually private?">
+<meta property="og:description" content="Fixed-price security check for Supabase and Firebase apps. Written report in 48 hours.">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<header class="wrap top">
+  <span class="logo">shipcheck</span>
+  <a class="btn small" href="https://x.com/Pedi_eth" id="dm-top">DM on X</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <p class="eyebrow">For apps built with Lovable, Bolt, Cursor or by hand on Supabase / Firebase</p>
+  <h1>Is your users' data actually private?</h1>
+  <p class="lead">Most fast-built apps ship with row level security off, a service key in the bundle, or storage buckets anyone can list. It takes one curious visitor to read every row. I check your app for exactly these mistakes and send you a plain written report with the fixes.</p>
+  <div class="cta">
+    <a class="btn" href="https://x.com/Pedi_eth" id="dm-hero">Book a check</a>
+    <a class="btn ghost" href="#sample">See what you get</a>
+  </div>
+  <p class="note">Written only. No calls, no meetings. Report in 48 hours.</p>
+</section>
+
+<section class="wrap">
+  <h2>What I check</h2>
+  <ul class="grid">
+    <li><b>Row level security</b><span>Every table: is RLS on, and do the policies actually stop one user reading another's rows?</span></li>
+    <li><b>Leaked keys</b><span>Service role keys, admin SDK credentials or third-party secrets shipped to the browser.</span></li>
+    <li><b>Storage</b><span>Public buckets, listable files, uploads anyone can overwrite.</span></li>
+    <li><b>Auth settings</b><span>Open sign-ups where they shouldn't be, email confirmation, redirect URLs.</span></li>
+    <li><b>Edge functions and RPC</b><span>Functions callable without auth, or trusting a user id sent from the client.</span></li>
+    <li><b>Firebase rules</b><span>Firestore, Realtime Database and Storage rules that allow read or write to everyone.</span></li>
+  </ul>
+</section>
+
+<section class="wrap" id="pricing">
+  <h2>Pricing</h2>
+  <div class="plans">
+    <div class="plan">
+      <h3>Quick Check</h3>
+      <p class="price">$750</p>
+      <ul><li>Full check of the list above</li><li>Findings ranked by severity</li><li>Exact fix for each one</li><li>Report in 48 hours</li></ul>
+    </div>
+    <div class="plan hl">
+      <h3>Audit + Fix</h3>
+      <p class="price">$1,500</p>
+      <ul><li>Everything in Quick Check</li><li>Ready-to-paste RLS policies and rules</li><li>Re-test after you apply them</li><li>Report in 72 hours</li></ul>
+    </div>
+    <div class="plan">
+      <h3>Monitor</h3>
+      <p class="price">$300<small>/month</small></p>
+      <ul><li>For past clients</li><li>Re-check after each release</li><li>Short written note each time</li></ul>
+    </div>
+  </div>
+  <p class="note">Founding price: the first three Quick Checks are $250 in exchange for an honest review.</p>
+</section>
+
+<section class="wrap" id="how">
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><b>Message me on X</b> with your app link and stack.</li>
+    <li><b>Give written permission</b> to test that app. I never test anything without it.</li>
+    <li><b>Pay up front</b> in USDC.</li>
+    <li><b>Get the report</b> within 48 hours, with every finding and its fix.</li>
+  </ol>
+</section>
+
+<section class="wrap" id="sample">
+  <h2>Sample report</h2>
+  <p>An example of the report format, written for a fictional app. No client data.</p>
+  <p><a class="btn ghost" href="sample-report.html">Open sample report</a></p>
+</section>
+
+<section class="wrap" id="faq">
+  <h2>Questions</h2>
+  <details><summary>Do you need access to my database?</summary><p>No. Quick Check works from the outside, the same way an attacker would. Audit + Fix is easier with read-only dashboard access, but it's optional.</p></details>
+  <details><summary>What if you find nothing?</summary><p>You get a report that says what was checked and that it passed. That's worth having before launch or a fundraise.</p></details>
+  <details><summary>Is this a full penetration test?</summary><p>No. It's a focused check of the misconfigurations that most often expose data in Supabase and Firebase apps. It doesn't guarantee your app is secure in every way.</p></details>
+  <details><summary>Why no calls?</summary><p>Everything is written so you have a record, and so you can forward it to your team.</p></details>
+</section>
+</main>
+
+<footer class="wrap foot">
+  <span>shipcheck</span>
+  <a href="https://x.com/Pedi_eth">x.com/Pedi_eth</a>
+  <a href="https://github.com/pedieth">github.com/pedieth</a>
+</footer>
+</body>
+</html>
